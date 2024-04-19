@@ -10,15 +10,53 @@
 
 body {
     position: relative;
+    background: linear-gradient(135deg, #5F9EA0, #8A2BE2, #00008B, #00BFFF, #FFD700);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
 }
 
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.card-header {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: none;
+}
+
+.card-body {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
 
 /* Add a grid layout to tasks */
 #tasks {
     display: grid;
     gap: 0.5rem;
 }
-
 
 #tasks {
     display: flex;
@@ -46,7 +84,7 @@ body {
     height: 100%;
     flex-direction: column !important;
     justify-content: center !important;
-    background: hsl(0 0% 100% / 0.1);
+    background: hsla(0, 0%, 100%, 0.1);
     backdrop-filter: blur(1em);
     border-radius: 3px;
     box-shadow: none;
@@ -125,6 +163,46 @@ body {
     width: 30%;
     display: block;
     margin: 0 auto;
+}
+
+/* Add snowball effect on button hover */
+.snowball {
+    position: relative;
+    overflow: hidden;
+}
+
+.snowball::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #FFFACD 30%, transparent 40%);
+    transition: transform 0.5s ease;
+    transform: scale(0);
+    border-radius: 50%;
+}
+
+.snowball:hover::after {
+    transform: scale(3);
+}
+
+/* Rainbow effect on button hover */
+.rainbow {
+    background-image: linear-gradient(45deg, #5F9EA0, #8A2BE2, #00008B, #00BFFF, #FFD700);
+    background-size: 200% 200%;
+    animation: rainbow-hover 2s infinite;
+}
+
+@keyframes rainbow-hover {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 @keyframes error {
